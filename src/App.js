@@ -1,5 +1,5 @@
 import NavBar from "./components/NavBar";
-import ItemContainer from "./components/ItemContainer"
+import ItemContainer from "./components/ItemListContainer"
 
 function App() {
   return (
@@ -8,8 +8,6 @@ function App() {
       </header>
       <NavBar />
       <ItemContainer mensaje = "Articulo 1"/>
-      <ItemContainer mensaje = "Articulo 2"/>
-      <ItemContainer mensaje = "Articulo 2"/>
     </div>
   );
 }
