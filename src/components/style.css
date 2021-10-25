@@ -11,3 +11,14 @@ img {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
+.articulo{
+    margin: 10px;
+    padding: 1px;
+}
+.contador{
+    display: flex;
+    padding: 10px;
+}
+.elementoContador{
+    margin: auto;
+}
