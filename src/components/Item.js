@@ -1,7 +1,7 @@
 import ItemCount from './ItemCount'
 import { Card } from 'react-bootstrap'
 
-const Item = (item) => {
+const Item = ({item}) => {
 
     return (
         <div className="item">
