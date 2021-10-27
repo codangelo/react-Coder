@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
       </header>
       <NavBar />
-      <ItemContainer mensaje = "Articulo 1"/>
+      <ItemContainer/>
     </div>
   );
 }

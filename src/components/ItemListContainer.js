@@ -1,13 +1,25 @@
-import ItemCount from './ItemCount'
+import { useState, useEffect } from 'react'
+import getFetch from './getFetch'
+import ItemList from './ItemList'
 
-const ItemListContainer = ({mensaje}) => {
-    return(
-        
-        <div className="articulo">
-        <h2>{mensaje}</h2>
-        <ItemCount stock={10} initial={1}/>
-        </div>
+const ItemListContainer = () => {
+    const [item, setItem] = useState([])
+
+    useEffect(() => {
+        getFetch
+            .then(res => {
+                setItem(res)
+            })
+            .catch(error => console.log(error))
+
+    }, [])
+
+    return (
+        <>
+            <ItemList item={item} />
+        </>
     )
+
 }
 
 export default ItemListContainer
