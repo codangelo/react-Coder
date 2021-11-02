@@ -1,0 +1,16 @@
+.itemList {
+  padding: 2%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 2%;
+}
+@media (max-width: 400px) {
+  .itemList {
+    padding: 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 2%;
+  }
+}

@@ -1,4 +1,4 @@
-import ItemCount from './ItemCount'
+import ItemCount from '../ItemCount/ItemCount'
 import { Card } from 'react-bootstrap'
 
 
@@ -6,7 +6,7 @@ const ItemDetail = ({itemDetail}) => {
     
     return (
         <div className="itemDetail">
-            <Card style={{ width: '30rem' }}>
+            <Card style={{ width: '30px' }}>
                 <Card.Img variant="top" src={itemDetail.img} />
                 <Card.Body>
                     <Card.Title>{itemDetail.titulo}</Card.Title>

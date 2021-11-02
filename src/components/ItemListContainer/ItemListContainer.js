@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import getFetch from './getFetch'
-import ItemList from './ItemList'
+import getFetch from '../../services/getFetch'
+import ItemList from '../ItemList/ItemList'
+import './ItemListContainer.css'
 
 const ItemListContainer = () => {
     const [item, setItem] = useState([])
+
 
     useEffect(() => {
         getFetch
@@ -15,9 +17,9 @@ const ItemListContainer = () => {
     }, [])
 
     return (
-        <>
+        <div className="itemList">
             <ItemList item={item} />
-        </>
+        </div>
     )
 
 }

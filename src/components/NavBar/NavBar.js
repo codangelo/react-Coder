@@ -1,8 +1,8 @@
 import { Navbar, Container, Nav} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import navLogo from '../images/logo.png';
-import { CartWidget } from './CartWidget';
-import './style.css';
+import navLogo from '../../images/logo.png';
+import { CartWidget } from '../CartWidget/CartWidget';
+import './NavBar.css';
 
 const NavBar = () => {
   return (

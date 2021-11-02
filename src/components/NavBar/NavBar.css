@@ -11,15 +11,15 @@ img {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 2rem;
+    color: black;
+    text-decoration: none;
 }
-.articulo{
-    margin: 10px;
-    padding: 1px;
+.textoNav:hover{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2rem;
+    color: black;
 }
-.contador{
-    display: flex;
-    padding: 10px;
-}
-.elementoContador{
-    margin: auto;
-}
+
+
+
