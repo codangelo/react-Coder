@@ -5,18 +5,18 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
 
-    const [itemDetail, setItemDetail] = useState([])
+    const [itemDetail, setItemDetail] = useState()
 
-    const {itemId} = useParams()
+    const {productId} = useParams()
     
     useEffect(() => {
-        console.log(parseInt(itemId))
+        console.log(parseInt(productId))
         getFetch
             .then(res => {
-                setItemDetail(res.find(prod => parseInt(prod.id) === parseInt(itemId)))
+                setItemDetail(res.find(prod => parseInt(prod.id) === parseInt(productId)))
             })
             .catch(error => console.log(error))
-    },[itemId])
+    },[productId])
 
     return (
         <div>

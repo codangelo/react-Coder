@@ -15,7 +15,7 @@ function App() {
           <Route exact path="/">
             <ItemListContainer />
           </Route>
-          <Route exact path="producto/:productId" component={ItemDetailContainer}/>
+          <Route exact path="/producto/:productId" component={ItemDetailContainer}/>
         </Switch>
       </BrowserRouter>
     </div>
