@@ -3,10 +3,13 @@ import {useParams} from 'react-router-dom'
 import getFetch from '../../services/getFetch'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
+import Loader from '../Loader/Loader'
 
 const ItemListContainer = () => {
     const [item, setItem] = useState()
     
+    const [loading, setLoading] = useState (true)
+
     const {categId} = useParams()
 
 
@@ -19,6 +22,7 @@ const ItemListContainer = () => {
                 setItem(res.filter(prod => prod.categ === categId))
             })
             .catch(error => console.log(error))
+            .finally(() => setLoading(false))
         }
         else {
             getFetch
@@ -26,13 +30,14 @@ const ItemListContainer = () => {
                 setItem(res)
             })
             .catch(error => console.log(error))
+            .finally(() => setLoading(false))
         }
 
     }, [categId])
 
     return (
         <div className="itemList">
-            {item && <ItemList item={item} />}
+            {loading ? <Loader /> : <ItemList item={item} />}
         </div>
     )
 

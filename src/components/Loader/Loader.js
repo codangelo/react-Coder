@@ -1,0 +1,12 @@
+import './Loader.css'
+
+
+const Loader = () => {
+    return (
+        <>
+            <h1> Cargando...</h1>
+        </>
+    );
+};
+
+export default Loader
