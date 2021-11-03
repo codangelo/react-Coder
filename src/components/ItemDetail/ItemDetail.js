@@ -3,10 +3,9 @@ import { Card } from 'react-bootstrap'
 
 
 const ItemDetail = ({itemDetail}) => {
-    
     return (
         <div className="itemDetail">
-            <Card style={{ width: '30px' }}>
+            <Card style={{ width: '500px' }}>
                 <Card.Img variant="top" src={itemDetail.img} />
                 <Card.Body>
                     <Card.Title>{itemDetail.titulo}</Card.Title>

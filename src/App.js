@@ -16,6 +16,7 @@ function App() {
             <ItemListContainer />
           </Route>
           <Route exact path="/producto/:productId" component={ItemDetailContainer}/>
+          <Route exact path="/:categId" component={ItemListContainer}/>
         </Switch>
       </BrowserRouter>
     </div>
