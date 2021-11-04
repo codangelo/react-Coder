@@ -4,6 +4,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### `Proyecto`
+
+El proyecto consiste en un e-commerce creado para el curso de React de CoderHouse. El ecommerce es una tienda de café de Nespresso, respetando la imagen de la marca y productos.
+En el sitio se puede navegar por categorías de productos y artículos, los cuales podrán agregarse a un carrito y luego realizar un checkout.
+
+### `Librerias`
+
+Se utilizaron las librerías de Bootstrap para construir el sitio y generar los iconos. 
+
+
 In the project directory, you can run:
 
 ### `npm start`
