@@ -10,10 +10,10 @@ const NavBar = () => {
       <Container>
         <Link className="textoNav" to="/"><img src={navLogo} alt=""/></Link>
         <Nav className="me-auto">
-          <Link className="textoNav" to="../cafe">Cafés</Link>
-          <Link className="textoNav" to="../maquinas">Máquinas</Link>
-          <Link className="textoNav" to="../accesorios">Accesorios</Link>
-          <Link className="textoNav" to="carrito"><CartWidget/></Link>
+          <Link className="textoNav" to="../categorias/cafe">Cafés</Link>
+          <Link className="textoNav" to="../categorias/maquinas">Máquinas</Link>
+          <Link className="textoNav" to="../categorias/accesorios">Accesorios</Link>
+          <Link className="textoNav" to="../carrito"><CartWidget/></Link>
         </Nav>
       </Container>
     </Navbar>
