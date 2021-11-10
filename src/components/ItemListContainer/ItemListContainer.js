@@ -14,7 +14,6 @@ const ItemListContainer = () => {
 
 
     useEffect(() => {
-        console.log(categId)
         
         if (categId) {
         getFetch

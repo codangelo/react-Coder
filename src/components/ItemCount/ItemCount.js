@@ -16,13 +16,14 @@ export function ItemCount({ stock, initial, onAdd }) {
         setCount(count - 1)
     }
 
-    function agregarAlCarrito(){
+    function agregar(){
         onAdd(count)
         setHabilitarBoton(true)
     }
     
     return (
         <>
+        
         <div className="contador">
             <Button className="contadorBoton" onClick={restar} disabled={count < 1}>-</Button>
             <h3 className="contadorCantidad">{count}</h3>
@@ -30,7 +31,7 @@ export function ItemCount({ stock, initial, onAdd }) {
         </div>
         {habilitarBoton 
             ? <Link to="/cart"><button className="contadorAgregar">Finalizar compra</button></Link>
-            : <button className="contadorAgregar" onClick={agregarAlCarrito}>Agregar al carrito</button>
+            : <button className="contadorAgregar" onClick={agregar}>Agregar al carrito</button>
             }
         </>
 
@@ -39,7 +40,4 @@ export function ItemCount({ stock, initial, onAdd }) {
 }
 
 export default ItemCount
-
-
-
 

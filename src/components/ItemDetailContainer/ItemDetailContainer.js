@@ -10,7 +10,6 @@ const ItemDetailContainer = () => {
     const {productId} = useParams()
     
     useEffect(() => {
-        console.log(parseInt(productId))
         getFetch
             .then(res => {
                 setItemDetail(res.find(prod => parseInt(prod.id) === parseInt(productId)))
@@ -24,5 +23,6 @@ const ItemDetailContainer = () => {
         </div>
     )
 }
+
 
 export default ItemDetailContainer
