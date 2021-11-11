@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import {Button} from 'react-bootstrap';
 import './ItemCount.css'
-import {Link} from 'react-router-dom'
 
 
 export function ItemCount({ stock, initial, onAdd }) {
     let [count, setCount] = useState(initial)
-    let [habilitarBoton, setHabilitarBoton] = useState(false);
 
     function sumar() {
         setCount(count + 1)
@@ -18,7 +16,6 @@ export function ItemCount({ stock, initial, onAdd }) {
 
     function agregar(){
         onAdd(count)
-        setHabilitarBoton(true)
     }
     
     return (
@@ -29,10 +26,8 @@ export function ItemCount({ stock, initial, onAdd }) {
             <h3 className="contadorCantidad">{count}</h3>
             <Button className="contadorBoton" onClick={sumar} disabled={count === parseInt(stock)}>+</Button>
         </div>
-        {habilitarBoton 
-            ? <Link to="/cart"><button className="contadorAgregar">Finalizar compra</button></Link>
-            : <button className="contadorAgregar" onClick={agregar}>Agregar al carrito</button>
-            }
+        <button className="contadorAgregar" onClick={agregar}>Agregar al carrito</button>
+        
         </>
 
     )

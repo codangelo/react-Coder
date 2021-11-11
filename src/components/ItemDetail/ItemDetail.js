@@ -1,22 +1,27 @@
 import ItemCount from '../ItemCount/ItemCount'
 import { Card } from 'react-bootstrap'
-import {useState} from 'react'
-import {useCartContext} from '../CartContext/CartContext'
+import { useState } from 'react'
+import { useCartContext } from '../CartContext/CartContext'
+import {Link} from 'react-router-dom'
 
 
-const ItemDetail = ({itemDetail}) => {
+const ItemDetail = ({ itemDetail }) => {
     const [cant, setCant] = useState(1)
-    const {cartList,mostrarListado,agregarAlCarrito} = useCartContext()
+    const { cartList, mostrarListado, agregarAlCarrito } = useCartContext()
+    let [habilitarBoton, setHabilitarBoton] = useState(false);
 
-    console.log(cartList,'Cartlist 1')
-    console.log(mostrarListado,'Mostrarnlistado 1')
-    console.log(agregarAlCarrito,'agregaralcarrito 1')
+
+    console.log(cartList, 'Cartlist 1')
+    console.log(mostrarListado, 'Mostrarnlistado 1')
+    console.log(agregarAlCarrito, 'agregaralcarrito 1')
 
     const onAdd = (count) => {
         setCant(count)
-        agregarAlCarrito({itemDetail, cantidad:cant})
+        agregarAlCarrito({ itemDetail, cantidad: cant })
         alert(`Se agregaron ${count} unidades al carrito`)
-        console.log(cartList,'onadd')
+        console.log(cartList, 'onadd')
+        setHabilitarBoton(true)
+
     }
 
     return (
@@ -27,7 +32,10 @@ const ItemDetail = ({itemDetail}) => {
                     <Card.Title>{itemDetail.titulo}</Card.Title>
                     <Card.Text>{itemDetail.precio}</Card.Text>
                     <Card.Text>{itemDetail.descripcion}</Card.Text>
-                    <ItemCount stock={itemDetail.stock} initial={cant} onAdd={onAdd}/>
+                    {habilitarBoton
+                        ? <Link to="/cart"><button className="contadorAgregar">Finalizar compra</button></Link>
+                        : <ItemCount stock={itemDetail.stock} initial={cant} onAdd={onAdd} />
+                    }
                 </Card.Body>
             </Card>
         </div>
