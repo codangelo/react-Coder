@@ -25,12 +25,12 @@ const Cart = () => {
                             <h4>Cantidad: {item.cant}</h4>
                         </div>
                         <div>
-                            <button className="remove-item" onClick={() => eliminarItem(item.itemDetail.id)}>Eliminar producto</button>
+                            <button className="remove" onClick={() => eliminarItem(item.itemDetail.id)}>Eliminar producto</button>
                         </div>
                     </div>
                 )}
                 <div>
-                    <p className="cart-total">Total de la compra: {cartTotal}</p>
+                    <p className="cart">Total de la compra: {cartTotal}</p>
                 </div>
             </div>
         </div>
