@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import './App.css'
 import CartContextProvider from './components/CartContext/CartContext';
+import Cart from './components/Cart/Cart'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             </Route>
             <Route exact path="/producto/:productId" component={ItemDetailContainer} />
             <Route exact path="/categorias/:categId" component={ItemListContainer} />
-            <Route exact path="/carrito" component={ItemDetailContainer} />
+            <Route exact path="/carrito" component={Cart} />
           </Switch>
         </BrowserRouter>
       </CartContextProvider>
