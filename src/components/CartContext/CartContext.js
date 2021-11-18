@@ -10,23 +10,23 @@ const CartContextProvider = ({children}) => {
     const [itemCant, setItemCant] = useState(0);
 
     const agregarAlCarrito = item => {
-        setItemCant(parseInt(itemCant + item.cant))
-        setCartTotal(parseInt(cartTotal + (item.itemDetail.precio * item.cant)))
-        const findItem = cartList.find(itemCart => itemCart.itemDetail.id === item.itemDetail.id)        
-        if (findItem) {
-            findItem.cant = findItem.cant + item.cant
-            setCartList(cartList)
+        setItemCant(itemCant + item.cant)
+        setCartTotal(cartTotal + (item.itemDetail.precio * item.cant))
+        const buscaItem = cartList.find(itemCarrito => itemCarrito.itemDetail.id === item.itemDetail.id)       
+        if (buscaItem) {
+            buscaItem.cant = buscaItem.cant + item.cant
         }
         else {
             setCartList(itemsAdded => [...itemsAdded, item])
+
         }
     }
 
     const eliminarItem = idItemQuitar => {
-        const itemRemove = cartList.find(itemCart => itemCart.itemDetail.id === idItemQuitar)
-        setItemCant(parseInt(itemCant - itemRemove.cant))
-        setCartTotal(parseInt(cartTotal - (itemRemove.itemDetail.price * itemRemove.cant)))
-        setCartList(cartList.filter(itemSearched => itemSearched.itemDetail.id !== idItemQuitar))
+        const itemQuitar = cartList.find(itemCarrito => itemCarrito.itemDetail.id === itemQuitar)
+        setItemCant(itemCant - itemQuitar.cant)
+        setCartTotal(cartTotal - (itemQuitar.itemDetail.price * itemQuitar.cant))
+        setCartList(cartList.filter(prod => prod.itemDetail.id !== idItemQuitar))
     }
 
     const emptyCart = () => {

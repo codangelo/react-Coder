@@ -5,7 +5,7 @@ import { Badge } from 'react-bootstrap'
 
 
 export function CartWidget() {
-    let { itemCant } = parseInt(useCartContext())
+    let { itemCant } = useCartContext()
 
     return (
         <>
@@ -16,3 +16,5 @@ export function CartWidget() {
         </>
     )
 }
+
+export default CartWidget

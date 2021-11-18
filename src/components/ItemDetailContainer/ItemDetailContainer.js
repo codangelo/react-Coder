@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
-import getFetch from '../../services/getFetch';
+import {getFirestore} from '../../services/GetFirestore';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
@@ -10,12 +10,14 @@ const ItemDetailContainer = () => {
     const {productId} = useParams()
     
     useEffect(() => {
-        getFetch
-            .then(res => {
-                setItemDetail(res.find(prod => parseInt(prod.id) === parseInt(productId)))
-            })
-            .catch(error => console.log(error))
+        const baseProductos = getFirestore()
+
+        baseProductos.collection("items").doc(productId).get()
+        .then(item => setItemDetail({id:item.id, ...item.data()}))
+        .catch (error => alert("Error:", error))
+
     },[productId])
+
 
     return (
         <div>

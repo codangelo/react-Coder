@@ -7,12 +7,11 @@ import {Link} from 'react-router-dom'
 
 const ItemDetail = ({ itemDetail }) => {
     const [cant, setCant] = useState(1)
-    const { cartList, mostrarListado, agregarAlCarrito } = useCartContext()
-    let [habilitarBoton, setHabilitarBoton] = useState(false);
+    const { cartList, agregarAlCarrito } = useCartContext()
+    const [habilitarBoton, setHabilitarBoton] = useState(false);
 
 
     console.log(cartList, 'Cartlist 1')
-    console.log(mostrarListado, 'Mostrarnlistado 1')
     console.log(agregarAlCarrito, 'agregaralcarrito 1')
 
     const onAdd = (count) => {
