@@ -1,0 +1,165 @@
+    function agregarAlCarrito(items) {
+        setCartList([
+        ...cartList,
+        items
+        ])
+        
+    }
+
+
+    function agregarAlCarrito(items) {
+        setItemCant(itemCant + items.count)
+        setCartTotal(cartTotal + (items.itemDetail.precio * items.count))
+        const buscaItem = cartList.find(itemCarrito => itemCarrito.itemDetail.id === items.itemDetail.id)       
+        if (buscaItem) {
+            buscaItem.count = buscaItem.count + items.count
+        }
+        else {
+            setCartList(itemsAdded => [...itemsAdded, items])
+
+        }
+        
+    }
+    mostrarListado()
+
+Nomenclatura:
+product:
+title
+desc
+img
+price
+stock
+categ
+
+orden import
+1. datos (Firebase)
+2. bootstrap
+3 apps
+4 css
+
+Chequeado:
+app.css
+index.js
+Index
+App.js
+Navbar
+CartWidget
+loader
+Itemlistcontainer
+Itemlist
+item
+itemCount
+Itemdetailcontainer
+Itemdetail
+
+--.-.-.-.-
+cart
+CartContext
+Images
+Services
+
+-.-.-.-.
+Itemdetail
+import { Card } from 'react-bootstrap'
+import { useState } from 'react'
+import {Link} from 'react-router-dom'
+import { useCartContext } from '../CartContext/CartContext'
+import ItemCount from '../ItemCount/ItemCount'
+
+
+
+const ItemDetail = ({ itemDetail }) => {
+    const [cant, setCant] = useState(1)
+    const { cartList, agregarAlCarrito } = useCartContext()
+    const [habilitarBoton, setHabilitarBoton] = useState(false);
+
+
+    console.log(cartList, 'Cartlist 1')
+    console.log(agregarAlCarrito, 'agregaralcarrito 1')
+
+    const onAdd = (count) => {
+        setCant(count)
+        agregarAlCarrito({ itemDetail, cantidad: cant })
+        alert(`Se agregaron ${count} unidades al carrito`)
+        console.log(cartList, 'onadd')
+        setHabilitarBoton(true)
+
+    }
+
+    return (
+        <div className="itemDetail">
+            <Card style={{ width: '500px' }}>
+                <Card.Img variant="top" src={itemDetail.img} />
+                <Card.Body>
+                    <Card.Title>{itemDetail.titulo}</Card.Title>
+                    <Card.Text>{itemDetail.precio}</Card.Text>
+                    <Card.Text>{itemDetail.descripcion}</Card.Text>
+                    {habilitarBoton
+                        ? <Link to="/cart"><button className="contadorAgregar">Finalizar compra</button></Link>
+                        : <ItemCount stock={itemDetail.stock} initial={cant} onAdd={onAdd} />
+                    }
+                </Card.Body>
+            </Card>
+        </div>
+    )
+}
+
+export default ItemDetail
+
+
+.,.,.,.,.,.,..,-.-.-.-.-.-.-
+
+CartContext
+import {createContext, useContext, useState} from "react";
+
+const CartContext = createContext();
+
+export const useCartContext = () => useContext (CartContext);
+
+const CartContextProvider = ({children}) => {
+    const [cartList, setCartList] = useState([]);
+    const [cartTotal, setCartTotal] = useState(0);
+    const [itemCant, setItemCant] = useState(0);
+
+    const agregarAlCarrito = item => {
+        setItemCant(itemCant + item.cant)
+        setCartTotal(cartTotal + (item.itemDetail.precio * item.cant))
+        const buscaItem = cartList.find(itemCarrito => itemCarrito.itemDetail.id === item.itemDetail.id)       
+        if (buscaItem) {
+            buscaItem.cant = buscaItem.cant + item.cant
+        }
+        else {
+            setCartList(itemsAdded => [...itemsAdded, item])
+
+        }
+    }
+
+    const eliminarItem = idItemQuitar => {
+        const itemQuitar = cartList.find(itemCarrito => itemCarrito.itemDetail.id === itemQuitar)
+        setItemCant(itemCant - itemQuitar.cant)
+        setCartTotal(cartTotal - (itemQuitar.itemDetail.price * itemQuitar.cant))
+        setCartList(cartList.filter(prod => prod.itemDetail.id !== idItemQuitar))
+    }
+
+    const emptyCart = () => {
+        setItemCant(0)
+        setCartTotal (0)
+        setCartList([])
+    }
+
+    return (
+        <CartContext.Provider value={{cartList, agregarAlCarrito, eliminarItem, emptyCart, itemCant, cartTotal}}>
+            {children}
+        </CartContext.Provider>
+    )
+}
+
+export default CartContextProvider
+
+import { useCartContext } from '../CartContext/CartContext'
+import {useState} from 'react';
+import { Link } from "react-router-dom";
+import {getFirestore} from '../../services/GetFirestore';
+import firebase from 'firebase';
+import 'firebase/firestore';
+import Form from '../Form/';

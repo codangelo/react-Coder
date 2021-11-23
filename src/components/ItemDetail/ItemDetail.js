@@ -6,19 +6,15 @@ import {Link} from 'react-router-dom'
 
 
 const ItemDetail = ({ itemDetail }) => {
+
     const [cant, setCant] = useState(1)
-    const { cartList, agregarAlCarrito } = useCartContext()
+    const { agregarAlCarrito } = useCartContext()
     const [habilitarBoton, setHabilitarBoton] = useState(false);
 
 
-    console.log(cartList, 'Cartlist 1')
-    console.log(agregarAlCarrito, 'agregaralcarrito 1')
-
     const onAdd = (count) => {
         setCant(count)
-        agregarAlCarrito({ itemDetail, cantidad: cant })
-        alert(`Se agregaron ${count} unidades al carrito`)
-        console.log(cartList, 'onadd')
+        agregarAlCarrito({ itemDetail, cantidad: count })
         setHabilitarBoton(true)
 
     }

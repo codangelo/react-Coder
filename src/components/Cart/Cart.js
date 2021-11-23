@@ -1,5 +1,7 @@
 import { useCartContext } from '../CartContext/CartContext'
 import { Link } from "react-router-dom";
+import 'firebase/firestore';
+
 
 
 const Cart = () => {
@@ -16,17 +18,17 @@ const Cart = () => {
                 </div>
             }
             <div>
-                {cartList.map(item =>
-                    <div key={item.itemDetail.id} >
-                        <img src={item.itemDetail.img} alt=""/>
+                {cartList.map(items =>
+                    <div key={items.id} >
+                        <img src={items.img} alt=""/>
                         <div>
-                            <h3>{item.itemDetail.title}</h3>
-                            <h4>{item.itemDetail.description}</h4>
-                            <h4>$ {item.itemDetail.precio}</h4>
-                            <h4>Cantidad: {item.cant}</h4>
+                            <h3>{items.titulo}</h3>
+                            <h4>{items.description}</h4>
+                            <h4>$ {items.precio}</h4>
+                            <h4>Cantidad: {items.cantidad}</h4>
                         </div>
                         <div>
-                            <button className="remove" onClick={() => eliminarItem(item.itemDetail.id)}>Eliminar producto</button>
+                            <button className="remove" onClick={() => eliminarItem(items.id)}>Eliminar producto</button>
                         </div>
                     </div>
                 )}
