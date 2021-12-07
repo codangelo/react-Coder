@@ -1,0 +1,13 @@
+.itemDetail {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.volver {
+  color: white;
+  background-color: black;
+  border-style: none;
+  padding: 5%;
+  margin: 5px 10px;
+}

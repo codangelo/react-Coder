@@ -2,8 +2,8 @@ import ItemCount from '../ItemCount/ItemCount'
 import { Card } from 'react-bootstrap'
 import { useState } from 'react'
 import { useCartContext } from '../CartContext/CartContext'
-import {Link} from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
+import './itemDetail.css'
 
 const ItemDetail = ({ itemDetail }) => {
 
@@ -28,9 +28,10 @@ const ItemDetail = ({ itemDetail }) => {
                     <Card.Text>{itemDetail.precio}</Card.Text>
                     <Card.Text>{itemDetail.descripcion}</Card.Text>
                     {habilitarBoton
-                        ? <Link to="/cart"><button className="contadorAgregar">Finalizar compra</button></Link>
+                        ? <Link to="/carrito"><button className="contadorAgregar">Finalizar compra</button></Link>
                         : <ItemCount stock={itemDetail.stock} initial={cant} onAdd={onAdd} />
                     }
+                    <Link to="/"><button className="volver">Volver al listado</button></Link>
                 </Card.Body>
             </Card>
         </div>

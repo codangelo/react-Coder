@@ -1,5 +1,5 @@
-import { Navbar, Container, Nav} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import { Navbar, Container, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import navLogo from '../../images/logo.png';
 import { CartWidget } from '../CartWidget/CartWidget';
 import './NavBar.css';
@@ -8,16 +8,16 @@ const NavBar = () => {
   return (
     <Navbar bg="light" variant="light">
       <Container>
-        <Link className="textoNav" to="/"><img src={navLogo} alt=""/></Link>
+        <Link className="textoNav" to="/"><img src={navLogo} alt="" /></Link>
         <Nav className="me-auto">
           <Link className="textoNav" to="../categorias/cafe">Cafés</Link>
           <Link className="textoNav" to="../categorias/maquinas">Máquinas</Link>
           <Link className="textoNav" to="../categorias/accesorios">Accesorios</Link>
-          <Link className="textoNav" to="../carrito"><CartWidget/></Link>
+          <Link className="textoNav" to="../carrito"><CartWidget /></Link>
         </Nav>
       </Container>
     </Navbar>
-)
+  )
 }
 
 export default NavBar

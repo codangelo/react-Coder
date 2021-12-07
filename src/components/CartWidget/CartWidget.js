@@ -9,10 +9,10 @@ export function CartWidget() {
 
     return (
         <>
-        <button className="navbar-cart"><BsBasket /></button>
-        <Badge pill bg="danger">
-            {itemCant}
-        </Badge>{''}
+            <button className="navbarCart"><BsBasket /></button>
+            <Badge pill bg="danger">
+                {itemCant}
+            </Badge>{''}
         </>
     )
 }

@@ -5,6 +5,9 @@ import { getFirestore } from '../../services/GetFirestore';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import Form from '../Form/Form'
+import './cart.css'
+import { Button } from 'react-bootstrap';
+
 
 
 
@@ -12,9 +15,7 @@ const Cart = () => {
     const [orderId, setOrderId] = useState("");
     const { cartList, eliminarItem, emptyCart, cartTotal, userData } = useCartContext()
 
-    const createOrder = (e) => {
-
-        e.preventDefault()
+    const createOrder = () => {
 
         let order = {}
         order.date = firebase.firestore.Timestamp.fromDate(new Date());
@@ -24,15 +25,16 @@ const Cart = () => {
             const id = cartList.id;
             const titulo = cartList.titulo;
             const subtotal = cartList.precio * cartList.cantidad;
-            return { id, titulo, subtotal }
+            const totalCant = cartList.cantidad
+            return { id, titulo, totalCant, subtotal }
         })
 
         const dbQuery = getFirestore()
 
         dbQuery.collection('orders').add(order)
-        .then(res => setOrderId(res.id))
-        .catch(error => alert("Error:", error))
-        .finally(() => emptyCart())
+            .then(res => setOrderId(res.id))
+            .catch(error => alert("Error:", error))
+            .finally(() => emptyCart())
 
         const itemsToUpdate = dbQuery.collection('items').where
             (firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.id))
@@ -53,40 +55,44 @@ const Cart = () => {
     }
 
     return (
-        <div>
+        <div className="contenedorCarrito">
             {cartList.length
-                ? <button className="remove-cart" onClick={() => emptyCart()}>Vaciar carrito</button>
+                ? <Button className="botonCarrito" onClick={() => emptyCart()}>Vaciar carrito</Button>
                 : orderId === ""
                     ? <div>
-                        <p className="empty-cart">El carrito está vacío</p>
-                        <Link className="go-to-home" to="/"> Ir al inicio</Link>
+                        <p className="textoCarrito">El carrito está vacío</p>
+                        <Button className="botonCarrito"><Link className="inicio" to="/"> Ir al inicio</Link></Button>
                     </div>
                     : <div>
-                        <p className="empty-cart">¡Gracias por tu compra!</p>
-                        <p className="order-id">Tu código de operación es: {orderId}</p>
-                        <Link className="go-to-home" to="/"> Ir al inicio</Link>
+                        <p className="textoCarrito">¡Gracias por tu compra!</p>
+                        <p className="idOrden">Tu código de operación es: {orderId}</p>
+                        <Button className="botonCarrito"><Link className="inicio" to="/"> Ir al inicio</Link></Button>
                     </div>
             }
-            <div>
+            <div className={cartList.length ? "cartListFull" : "cartListEmpty"}>
                 {cartList.map(items =>
-                    <div key={items.id} >
-                        <img src={items.img} alt="" />
+                    <div className="itemCarrito" key={items.id} >
+                        <img className="itemCarritoImg" src={items.img} alt="" />
                         <div>
-                            <h3>{items.titulo}</h3>
-                            <h4>{items.description}</h4>
-                            <h4>$ {items.precio}</h4>
-                            <h4>Cantidad: {items.cantidad}</h4>
+                            <h3 className="itemCarritoTitulo">{items.titulo}</h3>
+                            <h4 className="itemCarritoDesc">{items.description}</h4>
+                            <h4 className="itemCarritoPrecio">$ {items.precio}</h4>
+                            <h4 className="itemCarritoCant">Cantidad: {items.cantidad}</h4>
                         </div>
                         <div>
-                            <button className="remove" onClick={() => eliminarItem(items.id)}>Eliminar producto</button>
+                            <Button className="botonCarrito" onClick={() => eliminarItem(items.id)}>Eliminar producto</Button>
                         </div>
+
                     </div>
+
                 )}
+
                 <div>
                     <p className="cart">Total de la compra: {cartTotal}</p>
+                    <Form createOrder={createOrder} />
                 </div>
-                <Form createOrder={createOrder} />
             </div>
+
         </div>
     )
 }

@@ -1,0 +1,39 @@
+.contenedorCarrito {
+  background-color: rgb(248, 249, 250);
+  color: black;
+}
+.textoCarrito {
+  color: black;
+}
+.botonCarrito {
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  border-style: none;
+  margin: 2%;
+  padding: 10px;
+}
+.botonCarrito:hover {
+  color: white;
+  background-color: black;
+  border-style: none;
+}
+.inicio {
+  color: white;
+  background-color: black;
+  border-style: none;
+  text-decoration: none;
+}
+.inicio:hover {
+  color: white;
+  background-color: black;
+  border-style: none;
+  text-decoration: none;
+}
+
+.itemCarritoImg{
+  width: 10%;
+}
+.cartListEmpty{
+  display: none;
+}

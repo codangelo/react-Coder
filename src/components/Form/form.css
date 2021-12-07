@@ -1,14 +1,16 @@
-.verMas {
-  color: white;
-  background-color: black;
-  border-style: none;
-  padding: 5%;
-  margin: 5px 10px;
+.formDato {
+  padding: 1%;
 }
-.verMas:hover {
+
+.comprar {
+  background-color: black;
+  color: white;
+  border-style: none;
+  margin-top: 10px;
+  padding: 10px;
+}
+.comprar:hover {
   color: white;
   background-color: black;
   border-style: none;
-  padding: 5%;
-  margin: 5px 10px;
 }

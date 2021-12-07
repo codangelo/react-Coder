@@ -1,54 +1,48 @@
 .contador {
-    display:flex;
-    justify-content:center;
-    padding:20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .contadorBoton {
-    color:white;
-    background-color:black;
-    border-style:none;
-    padding:5%;
-    margin:5px 10px;
-
+  color: white;
+  background-color: black;
+  border-style: none;
+  padding: 5%;
+  margin: 5px 10px;
 }
 
 .contadorBoton:hover {
-    color:white;
-    background-color:black;
-    border-style:none;
-    padding:5%;
-    margin:5px 10px;
+  color: white;
+  background-color: black;
+  border-style: none;
+  padding: 5%;
+  margin: 5px 10px;
 }
 
-.contadorBoton:disabled{
-    background-color: gray;
+.contadorBoton:disabled {
+  background-color: gray;
 }
 
 .contadorAgregar {
-    display: flex;
-    justify-content: center;
-    padding: 5%;
-    color: white;
-    background-color: black;
-    border-style: none;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  color: white;
+  background-color: black;
+  border-style: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 .contadorAgregar:hover {
-    color: white;
-    background-color: black;
-    border-style: none;
-
+  color: white;
+  background-color: black;
+  border-style: none;
 }
 
 .contadorCantidad {
-    color:black;
-    padding:2%;
-    text-align: center;
-    padding-top: 5%;
-    
+  color: black;
+  padding: 2%;
+  text-align: center;
+  padding-top: 5%;
 }
-
-    
-
