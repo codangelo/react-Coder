@@ -10,7 +10,8 @@ Se puede ver una demo del sitio en: https://tiendanespresso.netlify.app/
 ### `Librerias`
 
 Se utilizaron las librerías de Bootstrap para construir el sitio y generar los iconos.
-También se utilizó React-router-dom 5.3.0 para generar las rutas del sitio.
+También se utilizó React-dom 17.0.2 y React-router-dom 5.3.0 para generar las rutas del sitio.
+Para el almacenamiento de la base de productos y ordenes se utilizó Firebase
 
 
 
