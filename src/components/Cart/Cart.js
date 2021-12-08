@@ -2,7 +2,7 @@ import { useCartContext } from '../CartContext/CartContext'
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { getFirestore } from '../../services/GetFirestore';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 import Form from '../Form/Form'
 import './cart.css'

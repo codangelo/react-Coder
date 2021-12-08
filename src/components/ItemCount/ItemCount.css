@@ -3,12 +3,17 @@
   justify-content: center;
   padding: 20px;
 }
+.botonesContador {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 
 .contadorBoton {
   color: white;
   background-color: black;
   border-style: none;
-  padding: 5%;
+  padding: 10%;
   margin: 5px 10px;
 }
 
@@ -16,7 +21,7 @@
   color: white;
   background-color: black;
   border-style: none;
-  padding: 5%;
+  padding: 10%;
   margin: 5px 10px;
 }
 
@@ -25,14 +30,12 @@
 }
 
 .contadorAgregar {
-  display: flex;
-  justify-content: center;
-  padding: 5%;
-  color: white;
   background-color: black;
+  text-decoration: none;
+  color: white;
   border-style: none;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2%;
+  padding: 10px;
 }
 .contadorAgregar:hover {
   color: white;
@@ -45,4 +48,13 @@
   padding: 2%;
   text-align: center;
   padding-top: 5%;
+}
+.sinStock {
+  display: none;
+}
+.leyendaSinStock {
+  color: red;
+}
+.avisoSinStock {
+  display: none;
 }
